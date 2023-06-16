@@ -9,9 +9,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.29.14",
     "next": "13.4.6",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "tailwind-merge": "^1.13.2",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/node": "20.3.1",
