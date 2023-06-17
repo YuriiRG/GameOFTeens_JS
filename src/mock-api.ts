@@ -37,8 +37,8 @@ const projects = [
   }
 ].map((project) =>
   Object.assign(project, {
-    smallImage: 'https://dummyimage.com/600x600/000/fff',
-    bigImage: 'https://dummyimage.com/2000x1000/000/fff',
+    smallImage: 'https://dummyimage.com/600x600/0d9488/fff',
+    bigImage: 'https://dummyimage.com/2000x1000/0d9488/fff',
     longDescription: `
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac condimentum elit. Nunc libero leo, bibendum non iaculis at, auctor ac velit. Vestibulum luctus tincidunt leo sed pulvinar. Sed eget elementum neque. Curabitur ac bibendum augue, in euismod enim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed gravida elit vitae rutrum hendrerit. Phasellus pretium ut diam nec lobortis. Nunc a risus sit amet lorem mollis dapibus. Quisque bibendum euismod commodo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
