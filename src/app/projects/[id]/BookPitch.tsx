@@ -90,6 +90,7 @@ export default function BookPitch() {
                 void handleSubmit((data) => {
                   console.log(data);
                   setOpen(false);
+                  reset();
                 })(e)
               }
             >
