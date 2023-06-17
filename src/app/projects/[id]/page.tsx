@@ -11,18 +11,18 @@ export default function Project({
     <>
       <div className='flex justify-center'>
         <div className='flex max-w-6xl flex-col gap-8'>
-          <div className='flex'>
+          <div className='flex flex-col sm:flex-row'>
             <img
               src={project.bigImage}
               alt={`An illustration for ${project.name}`}
-              className='max-h-[30rem] min-w-0 flex-grow rounded-lg object-contain'
+              className='max-h-[10rem] min-w-0 flex-grow rounded-lg object-contain sm:max-h-[30rem]'
             />
             <div className='max-w-xs p-4'>
-              <h1 className='text-xl font-bold'>{project.name}</h1>
+              <h1 className='text-3xl font-bold'>{project.name}</h1>
               <p className='text-lg'>{project.description}</p>
             </div>
           </div>
-          <div className='flex gap-8'>
+          <div className='flex flex-col-reverse gap-8 sm:flex-row'>
             <div className='flex flex-col gap-4 text-justify'>
               {project.longDescription
                 .split('\n')
