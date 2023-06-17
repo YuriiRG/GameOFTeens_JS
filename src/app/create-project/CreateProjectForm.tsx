@@ -45,6 +45,7 @@ export default function CreateProjectForm() {
           Ім&apos;я проєкту:
         </label>
         <TextInput
+          id='name'
           {...register('name')}
           isError={errors.name !== undefined}
           className='w-full'
@@ -56,6 +57,7 @@ export default function CreateProjectForm() {
           Короткий опис проєкту (декілька реченнь):
         </label>
         <TextInput
+          id='description'
           {...register('description')}
           isError={errors.description !== undefined}
           className='w-full'
@@ -67,6 +69,7 @@ export default function CreateProjectForm() {
           Посилання на велику іллюстрацію до проєкту:
         </label>
         <TextInput
+          id='bigImage'
           {...register('bigImage')}
           isError={errors.bigImage !== undefined}
           className='w-full'
@@ -78,6 +81,7 @@ export default function CreateProjectForm() {
           Посилання на малу та бажано квадратну іллюстрацію до проєкту:
         </label>
         <TextInput
+          id='smallImage'
           {...register('smallImage')}
           isError={errors.smallImage !== undefined}
           className='w-full'
@@ -89,6 +93,7 @@ export default function CreateProjectForm() {
           Довгий опис проєкту без обмежень по довжині:
         </label>
         <textarea
+          id='longDescription'
           {...register('longDescription')}
           rows={6}
           className={`w-full rounded-lg border-2 p-3 ${

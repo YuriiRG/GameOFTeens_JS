@@ -49,6 +49,7 @@ export default function BookPitch() {
           <fieldset className='flex flex-col items-start'>
             <label htmlFor='date'>Оберіть дату та час</label>
             <input
+              id='date'
               type='datetime-local'
               className={`rounded-lg border-2 p-3 ${
                 errors.date !== undefined
@@ -66,6 +67,7 @@ export default function BookPitch() {
           <fieldset>
             <label htmlFor='place'>Оберіть місце</label>
             <TextInput
+              id='place'
               isError={errors.place !== undefined}
               className='w-full'
               {...register('place')}
@@ -76,6 +78,7 @@ export default function BookPitch() {
               Укажіть додаткову інформацію, якщо бажаєте
             </label>
             <TextInput
+              id='notes'
               isError={errors.notes !== undefined}
               className='w-full'
               {...register('notes')}

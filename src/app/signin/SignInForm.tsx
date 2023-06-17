@@ -32,6 +32,7 @@ export default function SignInForm() {
       <fieldset>
         <label htmlFor='username'>Ім&apos;я користувача</label>
         <TextInput
+          id='username'
           isError={errors.username !== undefined}
           {...register('username')}
           className='w-full'
@@ -40,6 +41,7 @@ export default function SignInForm() {
       <fieldset>
         <label htmlFor='password'>Пароль</label>
         <TextInput
+          id='password'
           isError={errors.password !== undefined}
           {...register('password')}
           className='w-full'
