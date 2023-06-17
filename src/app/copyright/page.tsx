@@ -11,6 +11,7 @@ export default function Copyright() {
           graphics are copyright 2020 Twitter, Inc and other contributors. The
           graphics are licensed under CC-BY 4.0.
         </p>
+        <p>Drawings are a part of unDraw project by Katerina Limpitsouni.</p>
       </article>
     </div>
   );

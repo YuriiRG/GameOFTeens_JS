@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </NavLink>
             <ul className='flex gap-4'>
               <li>
-                <NavLink href='/'>Стартапи</NavLink>
+                <NavLink href='/projects'>Стартапи</NavLink>
               </li>
               <li>
                 <NavLink href='/create-project'>Створити проєкт</NavLink>

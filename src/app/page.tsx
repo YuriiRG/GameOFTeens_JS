@@ -1,53 +1,24 @@
-import { getProjects } from '@/mock-api';
-import Link from 'next/link';
-
-export default function Home() {
-  const projects = getProjects();
-
+export default function Landing() {
   return (
-    <main className='flex justify-center'>
-      <div className='flex flex-col gap-4'>
-        <h1 className='text-3xl font-bold'>Стартапи</h1>
-        <div className='flex max-w-[62rem] flex-wrap justify-center gap-4'>
-          {projects.map(({ name, description, id, smallImage }) => (
-            <ProjectPreview
-              key={id}
-              id={id}
-              name={name}
-              description={description}
-              image={smallImage}
-            />
-          ))}
-        </div>
+    <div className='flex flex-col items-center gap-12'>
+      <div className='flex flex-col items-center justify-center gap-4 sm:flex-row sm:p-2'>
+        <h1 className='text-4xl font-bold leading-normal sm:max-w-[50%] sm:text-5xl sm:leading-normal'>
+          GoITeens Lab — лабораторія стартапів розроблених підлітками 🚀
+        </h1>
+        <img
+          src='/undraw_project_team.svg'
+          className='min-w-0 flex-shrink object-contain'
+          alt=''
+        />
       </div>
-    </main>
-  );
-}
-
-function ProjectPreview({
-  id,
-  image,
-  name,
-  description
-}: {
-  id: number;
-  image: string;
-  name: string;
-  description: string;
-}) {
-  return (
-    <Link href={`/projects/${id}`}>
-      <section className='max-w-[20rem] rounded-2xl border-4 border-gray-200 bg-gray-100 p-4 transition-transform hover:scale-105'>
-        <div>
-          <img
-            src={image}
-            alt={`An illustration for ${name}`}
-            className='aspect-square w-full object-cover'
-          />
-        </div>
-        <h2 className='mt-2 text-xl font-bold'>{name}</h2>
-        <p className='mt-1'>{description}</p>
-      </section>
-    </Link>
+      <div className='flex justify-center'>
+        <a
+          href='/projects'
+          className='block rounded-full bg-blue-600 p-6 text-center text-2xl font-bold text-white transition-transform hover:scale-105 sm:text-3xl'
+        >
+          Відкрийте для себе нові стартапи
+        </a>
+      </div>
+    </div>
   );
 }
