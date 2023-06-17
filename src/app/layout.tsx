@@ -7,14 +7,17 @@ import { twMerge } from 'tailwind-merge';
 const inter = Inter({ subsets: ['latin', 'cyrillic-ext'] });
 
 export const metadata = {
-  title: 'GoITeens Lab',
+  title: {
+    default: 'GoITeens Lab',
+    template: '%s | GoITeens Lab'
+  },
   description: 'Лабораторія стартапів розроблених підлітками 🚀'
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='uk'>
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
+      <body className={`${inter.className} flex min-h-screen flex-col`}>
         <header className='border-b-2 border-gray-200 p-2'>
           <nav className='flex flex-wrap items-baseline gap-4'>
             <NavLink href='/' className='text-xl font-bold'>
@@ -33,7 +36,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </ul>
           </nav>
         </header>
-        <main className='p-4 flex-grow'>{children}</main>
+        <main className='flex-grow p-4'>{children}</main>
         <footer className='mt-10 bg-gray-200 p-4'>
           © Ромашко-Гомоляко Юрій та{' '}
           <Link href='/copyright' className='text-blue-500 hover:underline'>

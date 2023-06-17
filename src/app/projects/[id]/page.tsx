@@ -1,5 +1,15 @@
 import { getProject } from '@/mock-api';
 
+export function generateMetadata({
+  params: { id }
+}: {
+  params: { id: string };
+}) {
+  return {
+    title: `${getProject(Number(id)).name}`
+  };
+}
+
 export default function Project({
   params: { id }
 }: {
