@@ -2,7 +2,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { TextInput, SubmitButton, ErrorsBlock } from '@/app/form-utils';
+import { TextInput, Button, ErrorsBlock } from '@/app/form-utils';
 const schema = z.object({
   name: z
     .string()
@@ -98,7 +98,9 @@ export default function CreateProjectForm() {
           }`}
         ></textarea>
       </fieldset>
-      <SubmitButton disabled={isValidationError}>Створити проєкт</SubmitButton>
+      <Button type='submit' disabled={isValidationError}>
+        Створити проєкт
+      </Button>
       <ErrorsBlock
         errors={Object.values(errors).map((error) => error.message)}
       />

@@ -19,11 +19,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang='uk'>
       <body className={`${inter.className} flex min-h-screen flex-col`}>
         <header className='border-b-2 border-gray-200 p-2'>
-          <nav className='flex flex-wrap items-baseline gap-4'>
-            <NavLink href='/' className='text-xl font-bold'>
-              💡 GoITeens Lab
-            </NavLink>
-            <ul className='flex gap-4'>
+          <nav className='flex flex-col items-stretch gap-4 sm:flex-row sm:items-baseline'>
+            <ul className='flex flex-grow items-baseline justify-between sm:flex-grow-0'>
+              <li>
+                <NavLink href='/' className='text-xl font-bold'>
+                  💡 GoITeens Lab
+                </NavLink>
+              </li>
+              <li className='mr-2 block sm:hidden'>
+                <NavLink href='/signin'>Увійти</NavLink>
+              </li>
+            </ul>
+            <ul className='flex flex-grow justify-around gap-4 sm:justify-start'>
               <li>
                 <NavLink href='/projects'>Стартапи</NavLink>
               </li>
@@ -32,6 +39,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </li>
               <li>
                 <NavLink href='/events'>Події</NavLink>
+              </li>
+              <li className='hidden flex-grow sm:block' aria-hidden></li>
+              <li className='mr-2 hidden sm:block'>
+                <NavLink href='/signin'>Увійти</NavLink>
               </li>
             </ul>
           </nav>

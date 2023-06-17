@@ -14,7 +14,7 @@ export default function Landing() {
       <div className='flex justify-center'>
         <a
           href='/projects'
-          className='block rounded-full bg-blue-600 p-6 text-center text-2xl font-bold text-white transition-transform hover:scale-105 sm:text-3xl'
+          className='block rounded-full bg-gradient-to-r from-green-500  to-blue-600 p-6 text-center text-2xl font-bold text-white transition-transform hover:scale-105 sm:text-3xl'
         >
           Відкрийте для себе нові стартапи
         </a>

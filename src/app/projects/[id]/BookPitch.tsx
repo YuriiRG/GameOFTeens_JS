@@ -1,5 +1,5 @@
 'use client';
-import { ErrorsBlock, TextInput } from '@/app/form-utils';
+import { Button, ErrorsBlock, TextInput } from '@/app/form-utils';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as Dialog from '@radix-ui/react-dialog';
 import { useState } from 'react';
@@ -33,9 +33,7 @@ export default function BookPitch() {
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
-        <button className='rounded-lg bg-blue-700 p-4 text-lg text-white transition-all hover:scale-105 hover:bg-blue-600'>
-          Забронювати зустріч
-        </button>
+        <Button>Забронювати зустріч</Button>
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className='fixed inset-0 bg-black/50' />
@@ -66,18 +64,25 @@ export default function BookPitch() {
             />
           </fieldset>
           <fieldset>
-            <label htmlFor='date'>Оберіть місце</label>
-            <TextInput className='w-full' {...register('place')} />
+            <label htmlFor='place'>Оберіть місце</label>
+            <TextInput
+              isError={errors.place !== undefined}
+              className='w-full'
+              {...register('place')}
+            />
           </fieldset>
           <fieldset>
-            <label htmlFor='date'>
+            <label htmlFor='notes'>
               Укажіть додаткову інформацію, якщо бажаєте
             </label>
-            <TextInput className='w-full' {...register('notes')} />
+            <TextInput
+              isError={errors.notes !== undefined}
+              className='w-full'
+              {...register('notes')}
+            />
           </fieldset>
           <div className='flex justify-between'>
-            <button
-              className='rounded-lg bg-blue-700 p-4 text-lg text-white transition-all hover:scale-105 hover:bg-blue-600'
+            <Button
               onClick={(e) =>
                 void handleSubmit((data) => {
                   console.log(data);
@@ -86,12 +91,14 @@ export default function BookPitch() {
               }
             >
               Відправити запит
-            </button>
-            <Dialog.Close
-              asChild
-              className='rounded-lg bg-red-700 p-4 text-lg text-white transition-all hover:scale-105 hover:bg-red-600'
-            >
-              <button onClick={() => reset()}>Відмінити</button>
+            </Button>
+            <Dialog.Close asChild>
+              <Button
+                className='bg-red-700 hover:enabled:bg-red-600 active:enabled:bg-red-500'
+                onClick={() => reset()}
+              >
+                Відмінити
+              </Button>
             </Dialog.Close>
           </div>
           <ErrorsBlock

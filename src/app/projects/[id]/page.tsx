@@ -1,5 +1,6 @@
 import { getProject } from '@/mock-api';
 import BookPitch from './BookPitch';
+import { Button } from '@/app/form-utils';
 
 export function generateMetadata({
   params: { id }
@@ -46,9 +47,7 @@ export default function Project({
               </div>
             </div>
             <div className='flex flex-col gap-4'>
-              <button className='rounded-lg bg-blue-700 p-4 text-lg text-white transition-all hover:scale-105 hover:bg-blue-600'>
-                Профінансувати
-              </button>
+              <Button>Профінансувати</Button>
               <BookPitch />
             </div>
           </div>

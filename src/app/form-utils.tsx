@@ -43,22 +43,20 @@ export const ErrorsBlock = ({
   ) : null;
 };
 
-export type SubmitButtonProps = Omit<
+export type ButtonProps = Omit<
   InputHTMLAttributes<HTMLButtonElement>,
   'type'
->;
+> & {
+  type?: 'button' | 'reset' | 'submit';
+};
 
-export const SubmitButton = forwardRef<HTMLButtonElement, SubmitButtonProps>(
-  function SubmitButton(
-    { className, ...submitButtonProps }: SubmitButtonProps,
-    ref
-  ) {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  function Button({ className, ...buttonProps }: ButtonProps, ref) {
     return (
       <button
-        type='submit'
-        {...submitButtonProps}
+        {...buttonProps}
         className={twMerge(
-          `rounded-lg bg-blue-500 p-3 font-semibold text-white transition-all hover:enabled:bg-blue-600 active:enabled:bg-blue-700 disabled:bg-gray-300 disabled:text-gray-700`,
+          `rounded-lg bg-blue-700 p-3 font-semibold text-white transition-all hover:enabled:scale-105 hover:enabled:bg-blue-600 active:enabled:bg-blue-500 disabled:bg-gray-300 disabled:text-gray-700`,
           className
         )}
         ref={ref}
