@@ -1,9 +1,8 @@
 'use client';
-import { type InputHTMLAttributes, forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { TextInput, SubmitButton, ErrorsBlock } from '@/form-utils';
 const schema = z.object({
   name: z
     .string()
@@ -30,8 +29,7 @@ export default function CreateProjectForm() {
     handleSubmit,
     formState: { errors }
   } = useForm<z.infer<typeof schema>>({
-    resolver: zodResolver(schema),
-    mode: 'onChange'
+    resolver: zodResolver(schema)
   });
   const isValidationError = !Object.values(errors).every(
     (error) => error === undefined
@@ -41,7 +39,8 @@ export default function CreateProjectForm() {
       className='flex w-[65ch] flex-col gap-6'
       onSubmit={(e) => void handleSubmit((data) => console.log(data))(e)}
     >
-      <div>
+      <h1 className='text-3xl font-bold'>Новий проєкт</h1>
+      <fieldset>
         <label htmlFor='name' className=''>
           Ім&apos;я проєкту:
         </label>
@@ -51,8 +50,8 @@ export default function CreateProjectForm() {
           className='w-full'
           placeholder="Ім'я проєкту"
         />
-      </div>
-      <div>
+      </fieldset>
+      <fieldset>
         <label htmlFor='description' className=''>
           Короткий опис проєкту (декілька реченнь):
         </label>
@@ -62,8 +61,8 @@ export default function CreateProjectForm() {
           className='w-full'
           placeholder='Опис проєкту'
         />
-      </div>
-      <div>
+      </fieldset>
+      <fieldset>
         <label htmlFor='bigImage' className=''>
           Посилання на велику іллюстрацію до проєкту:
         </label>
@@ -73,8 +72,8 @@ export default function CreateProjectForm() {
           className='w-full'
           placeholder='Зображення'
         />
-      </div>
-      <div>
+      </fieldset>
+      <fieldset>
         <label htmlFor='smallImage' className=''>
           Посилання на малу та бажано квадратну іллюстрацію до проєкту:
         </label>
@@ -84,8 +83,8 @@ export default function CreateProjectForm() {
           className='w-full'
           placeholder='Зображення'
         />
-      </div>
-      <div>
+      </fieldset>
+      <fieldset>
         <label htmlFor='longDescription' className=''>
           Довгий опис проєкту без обмежень по довжині:
         </label>
@@ -98,7 +97,7 @@ export default function CreateProjectForm() {
               : 'border-gray-200 bg-gray-100'
           }`}
         ></textarea>
-      </div>
+      </fieldset>
       <SubmitButton disabled={isValidationError}>Створити проєкт</SubmitButton>
       <ErrorsBlock
         errors={Object.values(errors).map((error) => error.message)}
@@ -106,66 +105,3 @@ export default function CreateProjectForm() {
     </form>
   );
 }
-
-type TextInputProps = {
-  isError?: boolean;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>;
-
-const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
-  function TextInput({ isError = false, className = '', ...inputProps }, ref) {
-    return (
-      <input
-        type='text'
-        {...inputProps}
-        ref={ref}
-        className={twMerge(
-          `rounded-lg border-2 p-3 ${
-            isError
-              ? 'border-red-600 bg-red-50 outline-2 outline-red-600 focus:outline'
-              : 'border-gray-200 bg-gray-100'
-          }`,
-          className
-        )}
-      />
-    );
-  }
-);
-
-type SubmitButtonProps = Omit<InputHTMLAttributes<HTMLButtonElement>, 'type'>;
-
-const SubmitButton = forwardRef<HTMLButtonElement, SubmitButtonProps>(
-  function SubmitButton(
-    { className, ...submitButtonProps }: SubmitButtonProps,
-    ref
-  ) {
-    return (
-      <button
-        type='submit'
-        {...submitButtonProps}
-        className={twMerge(
-          `rounded-lg bg-blue-500 p-3 font-semibold text-white transition-all hover:enabled:bg-blue-600 active:enabled:bg-blue-700 disabled:bg-gray-300 disabled:text-gray-700`,
-          className
-        )}
-        ref={ref}
-      ></button>
-    );
-  }
-);
-
-const ErrorsBlock = ({
-  errors
-}: {
-  errors: readonly (string | undefined)[];
-}) => {
-  return !errors.every((e) => !e) ? (
-    <div className='rounded-r-lg border-l-8 border-red-600 bg-red-100 p-4'>
-      <ul>
-        {errors.map((error, i) => (
-          <li key={i} className='font-semibold'>
-            {error}
-          </li>
-        ))}
-      </ul>
-    </div>
-  ) : null;
-};

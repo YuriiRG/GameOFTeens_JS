@@ -1,4 +1,5 @@
 import { getProject } from '@/mock-api';
+import BookPitch from './BookPitch';
 
 export function generateMetadata({
   params: { id }
@@ -33,21 +34,21 @@ export default function Project({
             </div>
           </div>
           <div className='flex flex-col-reverse gap-8 sm:flex-row'>
-            <div className='flex flex-col gap-4 text-justify'>
-              {project.longDescription
-                .split('\n')
-                .filter((p) => p.length > 0)
-                .map((p) => (
-                  <p key={p}>{p}</p>
-                ))}
+            <div className='flex flex-grow justify-center'>
+              <div className='flex max-w-prose flex-col gap-4 text-justify'>
+                {project.longDescription
+                  .split('\n')
+                  .filter((p) => p.length > 0)
+                  .map((p) => (
+                    <p key={p}>{p}</p>
+                  ))}
+              </div>
             </div>
             <div className='flex flex-col gap-4'>
               <button className='rounded-lg bg-blue-700 p-4 text-lg text-white transition-all hover:scale-105 hover:bg-blue-600'>
                 Профінансувати
               </button>
-              <button className='rounded-lg bg-blue-700 p-4 text-lg text-white transition-all hover:scale-105 hover:bg-blue-600'>
-                Забронювати зустріч
-              </button>
+              <BookPitch />
             </div>
           </div>
         </div>
