@@ -1,5 +1,5 @@
 'use client';
-import { ErrorsBlock, TextInput } from '@/form-utils';
+import { ErrorsBlock, TextInput } from '@/app/form-utils';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as Dialog from '@radix-ui/react-dialog';
 import { useState } from 'react';

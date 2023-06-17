@@ -2,7 +2,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { TextInput, SubmitButton, ErrorsBlock } from '@/form-utils';
+import { TextInput, SubmitButton, ErrorsBlock } from '@/app/form-utils';
 const schema = z.object({
   name: z
     .string()
