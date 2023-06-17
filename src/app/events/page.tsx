@@ -6,6 +6,9 @@ export default function Events() {
   return (
     <div className='flex justify-center'>
       <div className='flex w-[65ch] flex-col gap-4'>
+        <h1 className='text-3xl font-bold'>
+          Події у сфері стартапів, інвестицій, технологій та новітніх розробок
+        </h1>
         {events.map(({ id, name, date, format }) => (
           <EventPreview
             key={id}
