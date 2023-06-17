@@ -37,7 +37,7 @@ export default function BookPitch() {
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className='fixed inset-0 bg-black/50' />
-        <Dialog.Content className='fixed left-1/2 top-1/2 flex w-[90vw] -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-lg bg-white p-6 sm:w-[50vw]'>
+        <Dialog.Content className='fixed left-1/2 top-1/2 flex w-[99vw] -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-lg bg-white p-6 sm:w-[50vw]'>
           <div>
             <Dialog.Title className='text-3xl font-bold'>
               Нова зустріч
