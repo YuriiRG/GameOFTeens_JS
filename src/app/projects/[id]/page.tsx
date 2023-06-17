@@ -7,7 +7,8 @@ export function generateMetadata({
   params: { id: string };
 }) {
   return {
-    title: `${getProject(Number(id)).name}`
+    title: `${getProject(Number(id)).name}`,
+    description: `${getProject(Number(id)).description}`
   };
 }
 

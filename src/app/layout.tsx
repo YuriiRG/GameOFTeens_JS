@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <main className='flex-grow p-4'>{children}</main>
         <footer className='mt-10 bg-gray-200 p-4'>
           © Ромашко-Гомоляко Юрій та{' '}
-          <Link href='/copyright' className='text-blue-500 hover:underline'>
+          <Link href='/copyright' className='text-blue-700 hover:underline'>
             інші
           </Link>
         </footer>
