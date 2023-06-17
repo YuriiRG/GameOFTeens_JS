@@ -33,8 +33,8 @@ function ProjectPreview({
   description: string;
 }) {
   return (
-    <Link href={`/startups/${id}`}>
-      <section className='max-w-[20rem] rounded-2xl border-4 border-gray-200 bg-gray-100 p-4'>
+    <Link href={`/projects/${id}`}>
+      <section className='max-w-[20rem] rounded-2xl border-4 border-gray-200 bg-gray-100 p-4 transition-transform hover:scale-105'>
         <div>
           <img
             src={image}

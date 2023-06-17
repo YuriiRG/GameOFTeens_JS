@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='uk'>
-      <body className={inter.className}>
+      <body className={`${inter.className} flex flex-col min-h-screen`}>
         <header className='border-b-2 border-gray-200 p-2'>
           <nav className='flex flex-wrap items-baseline gap-4'>
             <NavLink href='/' className='text-xl font-bold'>
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <NavLink href='/'>Стартапи</NavLink>
               </li>
               <li>
-                <NavLink href='/create-project'>Створити стартап</NavLink>
+                <NavLink href='/create-project'>Створити проєкт</NavLink>
               </li>
               <li>
                 <NavLink href='/events'>Події</NavLink>
@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </ul>
           </nav>
         </header>
-        <main className='p-4'>{children}</main>
+        <main className='p-4 flex-grow'>{children}</main>
         <footer className='mt-10 bg-gray-200 p-4'>
           © Ромашко-Гомоляко Юрій та{' '}
           <Link href='/copyright' className='text-blue-500 hover:underline'>
